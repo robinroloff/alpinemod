@@ -4,8 +4,10 @@ import de.robin.alpine.block.AlpineBlocks;
 import de.robin.alpine.entity.AlpineEntities;
 import de.robin.alpine.entity.entities.AlpineChicken;
 import de.robin.alpine.entity.model.AlpineChickenModel;
+import de.robin.alpine.entity.model.MarmotModel;
 import de.robin.alpine.entity.renderer.AlpineChickenRenderer;
 import de.robin.alpine.entity.renderer.AlpineCowRenderer;
+import de.robin.alpine.entity.renderer.MarmotRenderer;
 import de.robin.alpine.item.AlpineItems;
 import de.robin.alpine.worldgen.biome.AlpineBiomes;
 import de.robin.alpine.worldgen.biome.ModOverworldRegion;
@@ -108,6 +110,7 @@ public class AlpineMod {
         @SubscribeEvent
         public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
             event.registerLayerDefinition(AlpineChickenModel.LAYER_LOCATION, AlpineChickenModel::createBodyLayer);
+            event.registerLayerDefinition(MarmotModel.LAYER_LOCATION, MarmotModel::createBodyLayer);
 
         }
 
@@ -115,6 +118,7 @@ public class AlpineMod {
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(AlpineEntities.ALPINE_COW.get(), AlpineCowRenderer::new);
             EntityRenderers.register(AlpineEntities.ALPINE_CHICKEN.get(), AlpineChickenRenderer::new);
+            EntityRenderers.register(AlpineEntities.MARMOT.get(), MarmotRenderer::new);
         }
     }
 }

@@ -3,6 +3,7 @@ package de.robin.alpine.entity;
 import de.robin.alpine.AlpineMod;
 import de.robin.alpine.entity.entities.AlpineChicken;
 import de.robin.alpine.entity.entities.AlpineCow;
+import de.robin.alpine.entity.entities.Marmot;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,6 +22,9 @@ public class AlpineEntities {
     public static final RegistryObject<EntityType<AlpineChicken>> ALPINE_CHICKEN =
             ENTITY_TYPES.register("alpinechicken", () -> EntityType.Builder.of(AlpineChicken::new, MobCategory.CREATURE)
                     .sized(0.4F, 0.7F).clientTrackingRange(10).build("alpinechicken"));
+    public static final RegistryObject<EntityType<Marmot>> MARMOT =
+            ENTITY_TYPES.register("marmot", () -> EntityType.Builder.of(Marmot::new, MobCategory.CREATURE)
+                    .sized(0.4F, 0.7F).clientTrackingRange(10).build("marmot"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
