@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "alpinemod:block/potted_enzian"
+    }
+  }
+}
