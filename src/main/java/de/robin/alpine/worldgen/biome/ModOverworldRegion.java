@@ -23,7 +23,7 @@ public class ModOverworldRegion extends Region {
     @Override
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
         this.addModifiedVanillaOverworldBiomes(mapper, modifiedVanillaOverworldBuilder -> {
-            modifiedVanillaOverworldBuilder.replaceBiome(Biomes.FOREST, AlpineBiomes.TEST_BIOME);
+//            modifiedVanillaOverworldBuilder.replaceBiome(Biomes.FOREST, AlpineBiomes.TEST_BIOME);
 
             VanillaParameterOverlayBuilder builder = new VanillaParameterOverlayBuilder();
             new ParameterUtils.ParameterPointListBuilder()
