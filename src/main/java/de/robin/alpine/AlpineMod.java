@@ -59,7 +59,6 @@ public class AlpineMod {
 
         CREATIVE_MODE_TABS.register(modEventBus);
 
-        ModTerraBlender.registerBiomes();
         modEventBus.addListener(this::commonSetup);
 
 
