@@ -16,8 +16,12 @@ public class MarmotRenderer extends MobRenderer<Marmot, MarmotModel<Marmot>> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(Marmot p_114482_) {
-        return new ResourceLocation(AlpineMod.MODID, "textures/entity/marmot.png");
+    public ResourceLocation getTextureLocation(Marmot marmot) {
+        Marmot.COLORS color = marmot.getColor();
+        if(color == null) {
+            color = Marmot.COLORS.DEFAULT;
+        }
+        return new ResourceLocation(AlpineMod.MODID, "textures/entity/marmot/" + color.toString().toLowerCase() + ".png");
     }
 
 }

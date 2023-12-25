@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#alpinemod:is_alpine",
+  "features":"alpinemod:flowers_placed",
+  "step": "vegetal_decoration"
+}

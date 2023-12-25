@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#alpinemod:is_alpine",
+  "features":"alpinemod:ore_salt_lower",
+  "step": "vegetal_decoration"
+}

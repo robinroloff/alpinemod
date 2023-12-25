@@ -2,7 +2,10 @@
   "block.alpinemod.edelweiss": "Edelweiss",
   "block.alpinemod.enzian": "Enzian",
   "block.alpinemod.resin": "Harz",
+  "block.alpinemod.salt_block":  "Salzblock",
   "block.alpinemod.morel_mushroom": "Morchel",
   "item.alpinemod.alpinecow_spawn_egg": "Bayrische Kuh spawnen",
-  "item.alpinemod.alpinechicken_spawn_egg": "Auerhuhn spawnen"
+  "item.alpinemod.alpinechicken_spawn_egg": "Auerhuhn spawnen",
+  "item.alpinemod.salt": "Salz",
+  "item.alpinemod.pretzel": "Brezen"
 }

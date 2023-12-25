@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": {"model":  "alpinemod:block/salt_block"}
+  }
+}

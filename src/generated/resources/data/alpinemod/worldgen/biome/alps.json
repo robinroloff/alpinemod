@@ -45,7 +45,10 @@
     ],
     [],
     [],
-    [],
+    [
+      "minecraft:patch_tall_grass_2",
+      "minecraft:patch_grass_badlands"
+    ],
     [
       "minecraft:freeze_top_layer"
     ]
@@ -62,20 +65,7 @@
       }
     ],
     "axolotls": [],
-    "creature": [
-      {
-        "type": "alpinemod:alpinechicken",
-        "maxCount": 4,
-        "minCount": 3,
-        "weight": 10
-      },
-      {
-        "type": "alpinemod:alpinecow",
-        "maxCount": 4,
-        "minCount": 3,
-        "weight": 10
-      }
-    ],
+    "creature": [],
     "misc": [],
     "monster": [
       {

@@ -1,9 +1,9 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#alpinemod:test_biome",
+  "biomes": "#alpinemod:is_alpine",
   "spawners": {
     "type": "alpinemod:alpinechicken",
-    "weight": 75,
+    "weight": 750,
     "minCount": 2,
     "maxCount": 8
   }

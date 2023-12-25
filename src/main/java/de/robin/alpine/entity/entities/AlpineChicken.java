@@ -24,8 +24,4 @@ public class AlpineChicken extends Chicken {
     public AlpineChicken getBreedOffspring(ServerLevel p_148890_, AgeableMob p_148891_) {
         return AlpineEntities.ALPINE_CHICKEN.get().create(p_148890_);
     }
-
-    public static boolean canSpawn(EntityType<AlpineChicken> entityType, LevelAccessor level, MobSpawnType spawnType, BlockPos position, RandomSource random) {
-        return Animal.checkAnimalSpawnRules(entityType, level, spawnType, position, random);
-    }
 }

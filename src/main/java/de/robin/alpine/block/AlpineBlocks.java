@@ -47,6 +47,9 @@ public class AlpineBlocks {
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), AlpineBlocks.MOREL_MUSHROOM,
                     BlockBehaviour.Properties.copy(Blocks.POTTED_BROWN_MUSHROOM).noOcclusion()));
 
+    public static final RegistryObject<Block> SALT_BLOCK = registerBlock("salt_block", () -> new Block
+            (BlockBehaviour.Properties.copy(Blocks.ANDESITE)));
+
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

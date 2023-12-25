@@ -4,13 +4,18 @@ import de.robin.alpine.block.AlpineBlocks;
 import de.robin.alpine.entity.AlpineEntities;
 import de.robin.alpine.entity.entities.AlpineChicken;
 import de.robin.alpine.entity.model.AlpineChickenModel;
+import de.robin.alpine.entity.model.AlpineKillerBunnyModel;
 import de.robin.alpine.entity.model.MarmotModel;
 import de.robin.alpine.entity.renderer.AlpineChickenRenderer;
 import de.robin.alpine.entity.renderer.AlpineCowRenderer;
+import de.robin.alpine.entity.renderer.AlpineKillerBunnyRenderer;
 import de.robin.alpine.entity.renderer.MarmotRenderer;
 import de.robin.alpine.item.AlpineItems;
+import de.robin.alpine.worldgen.ModConfiguredFeatures;
+import de.robin.alpine.worldgen.ModPlacedFeatures;
 import de.robin.alpine.worldgen.biome.AlpineBiomes;
 import de.robin.alpine.worldgen.biome.ModOverworldRegion;
+import de.robin.alpine.worldgen.biome.ModSurfaceRuleData;
 import de.robin.alpine.worldgen.biome.ModTerraBlender;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.registries.Registries;
@@ -72,20 +77,12 @@ public class AlpineMod {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(AlpineBlocks.ENZIAN.getId(), AlpineBlocks.POTTED_ENZIAN);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(AlpineBlocks.MOREL_MUSHROOM.getId(), AlpineBlocks.POTTED_MOREL_MUSHROOM);
 
-            Regions.register(new ModOverworldRegion(new ResourceLocation(MODID, "overworld_1"), 2));
+            Regions.register(new ModOverworldRegion(new ResourceLocation(MODID, "overworld_1"), 20));
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, ModSurfaceRuleData.makeRules());
+
         });
     }
 
-    @SubscribeEvent
-    public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
-        event.register(
-                AlpineEntities.ALPINE_CHICKEN.get(),
-                SpawnPlacements.Type.ON_GROUND,
-                Heightmap.Types.WORLD_SURFACE,
-                AlpineChicken::canSpawn,
-                SpawnPlacementRegisterEvent.Operation.OR
-        );
-    }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ModEvents {
@@ -96,7 +93,10 @@ public class AlpineMod {
                 event.accept(AlpineBlocks.EDELWEISS);
                 event.accept(AlpineBlocks.MOREL_MUSHROOM);
                 event.accept(AlpineBlocks.RESIN);
+                event.accept(AlpineBlocks.SALT_BLOCK);
             } else if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
+                event.accept(AlpineItems.MARMOT_SPAWN_EGG);
+                event.accept(AlpineItems.ALPINE_KILLER_BUNNY_SPAWN_EGG);
                 event.accept(AlpineItems.ALPINE_COW_SPAWN_EGG);
                 event.accept(AlpineItems.ALPINE_CHICKEN_SPAWN_EGG);
             }
@@ -110,6 +110,7 @@ public class AlpineMod {
         public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
             event.registerLayerDefinition(AlpineChickenModel.LAYER_LOCATION, AlpineChickenModel::createBodyLayer);
             event.registerLayerDefinition(MarmotModel.LAYER_LOCATION, MarmotModel::createBodyLayer);
+            event.registerLayerDefinition(AlpineKillerBunnyModel.LAYER_LOCATION, AlpineKillerBunnyModel::createBodyLayer);
 
         }
 
@@ -118,6 +119,7 @@ public class AlpineMod {
             EntityRenderers.register(AlpineEntities.ALPINE_COW.get(), AlpineCowRenderer::new);
             EntityRenderers.register(AlpineEntities.ALPINE_CHICKEN.get(), AlpineChickenRenderer::new);
             EntityRenderers.register(AlpineEntities.MARMOT.get(), MarmotRenderer::new);
+            EntityRenderers.register(AlpineEntities.ALPINE_KILLER_BUNNY.get(), AlpineKillerBunnyRenderer::new);
         }
     }
 }
