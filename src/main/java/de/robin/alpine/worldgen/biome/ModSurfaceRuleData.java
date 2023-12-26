@@ -32,14 +32,20 @@ public class ModSurfaceRuleData {
         SurfaceRules.ConditionSource isAtOrAboveWaterLevel = SurfaceRules.waterBlockCheck(-1, 0);
         SurfaceRules.RuleSource grassSurface = SurfaceRules.sequence(SurfaceRules.ifTrue(isAtOrAboveWaterLevel, GRASS_BLOCK), DIRT);
 
-        SurfaceRules.ConditionSource spawnStone = SurfaceRules.yStartCheck(VerticalAnchor.absolute(90), 0);
+        SurfaceRules.RuleSource spawnStone =
+                SurfaceRules.sequence(
+                        SurfaceRules.ifTrue(SurfaceRules.verticalGradient("alpinemod:alpine_stone",
+                                VerticalAnchor.absolute(90), VerticalAnchor.absolute(95)), STONE),
+                        SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.absolute(95), 0), STONE)
+                );
+
         SurfaceRules.RuleSource stoneSurface = SurfaceRules.sequence(
-                SurfaceRules.ifTrue(isAtOrAboveWaterLevel, SurfaceRules.ifTrue(spawnStone, STONE)),
+                SurfaceRules.ifTrue(isAtOrAboveWaterLevel, spawnStone),
                 grassSurface);
 
         SurfaceRules.ConditionSource spawnSnow = SurfaceRules.yStartCheck(VerticalAnchor.absolute(120), 0);
         SurfaceRules.RuleSource snowSurface = SurfaceRules.sequence(
-                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(spawnSnow, SNOW)), SurfaceRules.ifTrue(spawnStone, stoneSurface));
+                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(spawnSnow, SNOW)), stoneSurface);
 
         return snowSurface;
     }

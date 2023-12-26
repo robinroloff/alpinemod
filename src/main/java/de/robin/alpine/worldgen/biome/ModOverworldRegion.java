@@ -27,7 +27,7 @@ public class ModOverworldRegion extends Region {
                 .continentalness(Continentalness.FAR_INLAND)
                 .erosion(Climate.Parameter.span(-2F, 1F))
                 .depth(Depth.SURFACE, Depth.FLOOR)
-                .weirdness(Weirdness.FULL_RANGE)
+                .weirdness(Weirdness.MID_SLICE_VARIANT_DESCENDING)
                 .build().forEach(point -> builder.add(point, AlpineBiomes.ALPS));
 
         builder.build().forEach(mapper);
