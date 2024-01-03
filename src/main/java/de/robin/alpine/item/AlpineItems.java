@@ -4,14 +4,11 @@ import de.robin.alpine.AlpineMod;
 import de.robin.alpine.entity.AlpineEntities;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.rmi.registry.Registry;
 
 public class AlpineItems {
     public static final DeferredRegister<Item> ITEMS =

@@ -5,11 +5,10 @@ import de.robin.alpine.item.AlpineItems;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FlowerBlock;
-import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -37,8 +36,9 @@ public class AlpineBlocks {
                     BlockBehaviour.Properties.copy(Blocks.POTTED_CORNFLOWER).noOcclusion()));
 
     public static final RegistryObject<Block> RESIN = registerBlock("resin",
-            () -> new FlowerBlock(() -> MobEffects.LUCK, 5,
-                    BlockBehaviour.Properties.copy(Blocks.VINE).noOcclusion().noCollission()));
+            () -> new VineBlock(
+                    BlockBehaviour.Properties.of().replaceable().noCollission().
+                            randomTicks().strength(0.2F).sound(SoundType.VINE).ignitedByLava().pushReaction(PushReaction.DESTROY)));
 
     public static final RegistryObject<Block> MOREL_MUSHROOM = registerBlock("morel_mushroom",
             () -> new FlowerBlock(() -> MobEffects.LUCK, 5,

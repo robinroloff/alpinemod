@@ -22,13 +22,22 @@ public class ModOverworldRegion extends Region {
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
         VanillaParameterOverlayBuilder builder = new VanillaParameterOverlayBuilder();
         new ParameterPointListBuilder()
-                .temperature(Temperature.COOL)
-                .humidity(Humidity.WET)
+                .temperature(Temperature.FROZEN)
+                .humidity(Humidity.HUMID)
                 .continentalness(Continentalness.FAR_INLAND)
-                .erosion(Climate.Parameter.span(-2F, 1F))
-                .depth(Depth.SURFACE, Depth.FLOOR)
-                .weirdness(Weirdness.MID_SLICE_VARIANT_DESCENDING)
+                .erosion(Erosion.EROSION_0)
+                .depth(Depth.SURFACE)
+                .weirdness(Weirdness.FULL_RANGE)
                 .build().forEach(point -> builder.add(point, AlpineBiomes.ALPS));
+
+        new ParameterPointListBuilder()
+                .temperature(Temperature.NEUTRAL)
+                .humidity(Humidity.NEUTRAL)
+                .continentalness(Continentalness.FAR_INLAND)
+                .erosion(Climate.Parameter.span(0.5F, 1F))
+                .depth(Depth.SURFACE, Depth.FLOOR)
+                .weirdness(Climate.Parameter.span(-0.35F, 0.35F))
+                .build().forEach(point -> builder.add(point, AlpineBiomes.ALPS_VALLEY));
 
         builder.build().forEach(mapper);
     }

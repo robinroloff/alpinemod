@@ -1,14 +1,12 @@
 package de.robin.alpine.datagen;
 
 import de.robin.alpine.AlpineMod;
-import de.robin.alpine.worldgen.ModBiomeModifiers;
 import de.robin.alpine.worldgen.biome.AlpineBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;

@@ -46,7 +46,7 @@
           "type": "alpinemod:marmot",
           "maxCount": 3,
           "minCount": 1,
-          "weight": 100
+          "weight": 5
         }
       ]
     }
